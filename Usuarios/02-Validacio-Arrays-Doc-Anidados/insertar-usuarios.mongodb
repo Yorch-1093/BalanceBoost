@@ -1,0 +1,10 @@
+use("BalanceBoost")
+
+// Insertar un documento en la colección 'usuarios' con validaciones
+db.usuarios.insertOne({
+    nombreUsuario: 'Jorge123',
+    email: 'jorge123@gmail.com', 
+    contraseña: 'Contraseña123', 
+    createdAt: new Date(),
+    updatedAt: new Date()
+})

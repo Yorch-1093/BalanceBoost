@@ -1,0 +1,10 @@
+// Usar la Base de Datos
+use("BalanceBoost")
+
+db.usuarios.insertOne({
+    nombreUsuario: 'Jorge123',
+    email: 'jorge123@gmail.com',
+    contraseña: 'Contraseña123', 
+    createdAt: new Date(), 
+    updatedAt: new Date()   
+})

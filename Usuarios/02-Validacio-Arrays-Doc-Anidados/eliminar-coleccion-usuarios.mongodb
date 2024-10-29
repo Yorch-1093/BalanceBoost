@@ -1,0 +1,4 @@
+use("BalanceBoost")
+
+// Eliminar la colección 'usuarios' si existe
+db.usuarios.drop()

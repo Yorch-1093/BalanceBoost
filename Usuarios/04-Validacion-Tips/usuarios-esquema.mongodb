@@ -1,0 +1,46 @@
+// Usar la Base de Datos
+use("BalanceBoost")
+
+// Crear el esquema de validación de usuarios
+db.createCollection('usuarios', {
+    validator: { // Validador
+        $jsonSchema: {
+            bsonType: 'object', // Indicamos que se refiere a un objeto
+            title: 'Validación del objeto de usuarios',
+            required: ['nombreUsuario', 'email', 'contrasena'], // Son los atributos requeridos (Not null)
+            properties: {
+                nombreUsuario: {
+                    bsonType: 'string',
+                    description: 'Nombre del usuario',
+                    minLength: 1 // Asegurarse de que el nombre de usuario no esté vacío
+                },
+                email: {
+                    bsonType: 'string',
+                    description: 'Correo del usuario',
+                    pattern: "^[A-Za-z\\d._%+-]+@[A-Za-z\\d.-]+\\.[A-Za-z]{2,}$" // Expresión regular para validar el formato del correo
+                },
+                contrasena: {
+                    bsonType: 'string',
+                    description: 'Clave para el usuario entre 8 y 20 caracteres',
+                    minLength: 8, 
+                    maxLength: 20 
+                },
+                createdAt: {
+                    bsonType: 'date',
+                    description: 'Fecha de creación del usuario'
+                },
+                updatedAt: {
+                    bsonType: 'date',
+                    description: 'Fecha de última actualización del usuario'
+                }
+            }
+        }
+    }
+})
+
+// Crear índice por campo email
+// No permitirá email duplicados
+db.usuarios.createIndex(
+    { email: 1 }, // Será la llave del índice
+    { unique: true } // No acepta valores duplicados
+)
