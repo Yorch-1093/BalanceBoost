@@ -1,0 +1,7 @@
+//usar base de datios
+use("BalanceBoost")
+
+//consultar la coleccion de usarios
+///select * from usuarios
+
+db.contenido_educativo.find()

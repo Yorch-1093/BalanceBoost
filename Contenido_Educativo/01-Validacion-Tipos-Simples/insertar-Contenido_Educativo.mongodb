@@ -1,0 +1,9 @@
+// Usar la base de datos
+use("BalanceBoost")
+
+// Insertar un documento en la colección 'contenido_educativo'
+db.contenido_educativo.insertOne({
+    categoria: 'salud mental',
+    nombre: 'Meditacion',
+    id_usuario: 2
+})
