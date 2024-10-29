@@ -1,0 +1,6 @@
+use("BalanceBoost")
+// Crear un índice único en el campo 'id_usuario'
+db.contenido_educativo.createIndex(
+    { id_usuario: 1 },
+    { unique: true } // No permitirá valores duplicados
+)

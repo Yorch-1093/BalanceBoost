@@ -1,0 +1,32 @@
+// Usar base de datos
+use("BalanceBoost")
+
+// Crear el esquema de validación de contenido educativo
+db.createCollection('contenido_educativo', {
+    validator: { // Validador
+        $jsonSchema: {
+            bsonType: 'object', // Indicamos que se refiere a un objeto
+            title: 'Validación del objeto de contenido educativo',
+            required: ['categoria', 'nombre', 'id_usuario'], // Son los atributos requeridos (Not null)
+            properties: {
+                categoria: {
+                    bsonType: 'string',
+                    description: 'Categoría del contenido educativo',
+                    enum: ['salud mental', 'alimentacion', 'salud fisica'] // Las categorías permitidas
+                },
+                id_usuario: {
+                    bsonType: 'int',
+                    description: 'ID del usuario que creó el contenido educativo',
+                    minimum: 1 // ID de usuario debe ser un entero positivo
+                }
+            }
+        }
+    }
+})
+
+// Crear un índice único en el campo 'id_usuario'
+// No permitirá duplicados en el ID del usuario
+db.contenido_educativo.createIndex(
+    { id_usuario: 2 }, // Será la llave del índice
+    { unique: true } // No acepta valores duplicados
+)

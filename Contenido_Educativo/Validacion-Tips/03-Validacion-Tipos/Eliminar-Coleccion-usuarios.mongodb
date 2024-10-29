@@ -1,0 +1,4 @@
+//usar la base de datos
+use("BalanceBoost")
+//Elimanar la coleccion
+db.usuarios.drop()
