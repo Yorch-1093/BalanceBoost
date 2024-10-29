@@ -1,0 +1,31 @@
+// Usar la base de datos
+use("BalanceBoost")
+
+// Crear la colección metas con validación
+db.createCollection('metas', {
+    validator: {
+        $jsonSchema: {
+            bsonType: 'object',
+            required: ['descripcion', 'fechaInicio', 'estado', 'id_usuario'],
+            properties: {
+                descripcion: {
+                    bsonType: 'string',
+                    description: 'Descripción de la meta, hasta 255 caracteres'
+                },
+                fechaInicio: {
+                    bsonType: 'date',
+                    description: 'Fecha de inicio de la meta'
+                },
+                fechaFin: {
+                    bsonType: 'date',
+                    description: 'Fecha de finalización de la meta, opcional'
+                },
+            
+                id_usuario: {
+                    bsonType: 'int',
+                    description: 'ID del usuario asociado a la meta'
+                }
+            }
+        }
+    }
+})

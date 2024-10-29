@@ -1,0 +1,5 @@
+// Usar la base de datos
+use("BalanceBoost")
+
+// Consultar todos los documentos de la colección metas
+db.metas.find()

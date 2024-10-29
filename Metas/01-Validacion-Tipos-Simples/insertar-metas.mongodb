@@ -1,0 +1,13 @@
+
+
+// Usar la base de datos
+use("BalanceBoost")
+
+// Insertar un documento en la colección metas
+db.metas.insertOne({
+
+    fechaInicio: new Date('2024-10-01'), // Ejemplo de fecha de inicio
+    fechaFin: new Date('2024-12-31'), // Ejemplo de fecha de finalización
+    id_usuario: 1 // Cambia este valor al ID del usuario correspondiente
+})
+

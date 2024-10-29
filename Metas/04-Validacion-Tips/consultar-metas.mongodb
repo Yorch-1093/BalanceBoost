@@ -1,0 +1,7 @@
+// Usar la Base de Datos
+use("BalanceBoost")
+
+// Consultar la colección de metas
+// SELECT * FROM metas
+db.metas.find()
+
