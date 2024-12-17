@@ -1,8 +1,0 @@
-use("BalanceBoost")
-
-db.contenido_educativo.insertOne({
-    categoria: 'salud mental',
-    nombre: 'Técnicas de relajación',
-    id_usuario: 2, // Asegúrate de que este ID no esté repetido
-    fecha_publicacion: new Date() // Fecha de publicación del contenido
-})
