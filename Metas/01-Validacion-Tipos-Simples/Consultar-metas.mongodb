@@ -1,6 +1,0 @@
-// Usar la base de datos
-use("BalanceBoost")
-
-// Consultar la colección metas
-db.metas.find()
-
