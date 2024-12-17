@@ -1,7 +1,0 @@
-//Usar la Base de Datos
-use("BalanceBoost")
-
-//Consultar la conexion de usuarios
-// SELECT * FROM usuarios
-
-db.usuarios.find()

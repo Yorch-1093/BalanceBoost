@@ -1,6 +1,0 @@
-//Usar la Base de Datos
-use("BalanceBoost")
-
-//Eliminar la coleccion
-db.usuarios.drop()
-
